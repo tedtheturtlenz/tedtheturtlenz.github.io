@@ -37,8 +37,10 @@
     light.position.set(5, 5, 5).normalize();
     scene.add(light);
 
+    // Ensure GLTFLoader is available as a separate class
+    const loader = new THREE.GLTFLoader(); // This should work now after loading the GLTFLoader script
+
     // Load 3D Model
-    const loader = new THREE.GLTFLoader(); // Correct way to instantiate the loader
     loader.load('./Bonsai_tree_FC_v5.ply', 
       function (gltf) {
         scene.add(gltf.scene);
