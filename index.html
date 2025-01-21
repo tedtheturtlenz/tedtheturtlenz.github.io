@@ -17,7 +17,7 @@
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/PLYLoader.js"></script>
   <script>
     // Scene, Camera, Renderer
     const scene = new THREE.Scene();
@@ -31,17 +31,21 @@
     light.position.set(5, 5, 5).normalize();
     scene.add(light);
 
-    // Load 3D Model
-    const loader = new THREE.GLTFLoader();
-    loader.load('./your-model.glb', // Relative path to the model
-  function (gltf) {
-    scene.add(gltf.scene);
-  },
-  undefined,
-  function (error) {
-    console.error('An error occurred:', error);
-  }
-);
+    // Load 3D Model (PLYLoader for PLY Files)
+    const loader = new THREE.PLYLoader();
+    loader.load('./Bonsai_tree_FC_v5.ply', // Path to your PLY file
+      function (geometry) {
+        // Apply a material to the geometry
+        const material = new THREE.MeshStandardMaterial({ color: 0x88ccee });
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+        mesh.position.set(0, 0, 0); // Adjust position if needed
+      },
+      undefined,
+      function (error) {
+        console.error('An error occurred:', error);
+      }
+    );
 
     // Camera Position
     camera.position.set(0, 1, 5);
