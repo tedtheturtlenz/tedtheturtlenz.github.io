@@ -1,1 +1,109 @@
-<div class="sketchfab-embed-wrapper"> <iframe title="Bonsai_Tree" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/7893dad3991c491392231d3d4e8be8d1/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/bonsai-tree-7893dad3991c491392231d3d4e8be8d1?utm_medium=embed&utm_campaign=share-popup&utm_content=7893dad3991c491392231d3d4e8be8d1" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Bonsai_Tree </a> by <a href="https://sketchfab.com/ta150?utm_medium=embed&utm_campaign=share-popup&utm_content=7893dad3991c491392231d3d4e8be8d1" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> ta150 </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=7893dad3991c491392231d3d4e8be8d1" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tree-D Scanner</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #053225, #cbeaa6); /* Gradient background */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ffffff;
+      margin-bottom: 10px;
+      font-size: 2.5em;
+    }
+
+    h2 {
+      color: #e3f3d4;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      font-weight: normal;
+    }
+
+    .credits {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #e3f3d4;
+    }
+
+    .model-viewers-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px; /* Increased space between viewers */
+      width: 100%;
+      padding: 20px;
+    }
+
+    .viewer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 54%; /* Increased width (20% larger) */
+      max-width: 500px; /* Increased max width (20% larger) */
+    }
+
+    .viewer-title {
+      color: #ffffff;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .sketchfab-embed-wrapper {
+      width: 100%;
+      height: 360px; /* Increased height (20% larger) */
+      background: #ffffff;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .model-viewers-container {
+        flex-direction: column;
+      }
+
+      .viewer {
+        width: 90%; /* Increased width for mobile responsiveness */
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>The Tree-D Scanner</h1>
+  <h2>3D Reconstruction and Measurement of Woody Plant Features</h2>
+  <div class="model-viewers-container">
+    <!-- Left Viewer -->
+    <div class="viewer">
+      <h3 class="viewer-title">Bonsai Tree</h3>
+      <div class="sketchfab-embed-wrapper">
+        <iframe title="Bonsai_Tree" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/7893dad3991c491392231d3d4e8be8d1/embed"></iframe>
+      </div>
+    </div>
+    <!-- Right Viewer -->
+    <div class="viewer">
+      <h3 class="viewer-title">Scanner</h3>
+      <div class="sketchfab-embed-wrapper">
+        <iframe title="Bonsai_Tree" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/7893dad3991c491392231d3d4e8be8d1/embed"></iframe>
+      </div>
+    </div>
+  </div>
+  <p class="credits">Created by Tim Aiken</p>
+</body>
+</html>
