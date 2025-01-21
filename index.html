@@ -15,31 +15,29 @@
   </style>
 </head>
 <body>
+  <!-- Load Three.js first -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+  
+  <!-- Load OrbitControls and GLTFLoader after Three.js -->
   <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/PLYLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+  
   <script>
-    // Scene, Camera, Renderer
+    // Your code goes here
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    // Lighting
     const light = new THREE.DirectionalLight(0xffffff, 1);
     light.position.set(5, 5, 5).normalize();
     scene.add(light);
 
-    // Load 3D Model (PLYLoader for PLY Files)
-    const loader = new THREE.PLYLoader();
-    loader.load('./Bonsai_tree_FC_v5.ply', // Path to your PLY file
-      function (geometry) {
-        // Apply a material to the geometry
-        const material = new THREE.MeshStandardMaterial({ color: 0x88ccee });
-        const mesh = new THREE.Mesh(geometry, material);
-        scene.add(mesh);
-        mesh.position.set(0, 0, 0); // Adjust position if needed
+    const loader = new THREE.GLTFLoader();
+    loader.load('./Bonsai_tree_FC_v5.ply', 
+      function (gltf) {
+        scene.add(gltf.scene);
       },
       undefined,
       function (error) {
@@ -47,26 +45,18 @@
       }
     );
 
-    // Camera Position
     camera.position.set(0, 1, 5);
-
-    // Orbit Controls
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true; // Smooth movement
+    controls.enableDamping = true;
     controls.dampingFactor = 0.05;
-    controls.screenSpacePanning = false; // Prevent panning with left mouse button
-    controls.minDistance = 2; // Set minimum zoom distance
-    controls.maxDistance = 10; // Set maximum zoom distance
 
-    // Animation Loop
     function animate() {
       requestAnimationFrame(animate);
-      controls.update(); // Update orbit controls
+      controls.update();
       renderer.render(scene, camera);
     }
     animate();
 
-    // Handle Window Resize
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
