@@ -8,59 +8,52 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #053225, #cbeaa6); /* Gradient background */
+      background: linear-gradient(135deg, #053225, #cbeaa6);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      min-height: 100vh;
     }
 
     h1 {
       color: #ffffff;
-      margin-bottom: 10px;
-      font-size: 2.5em;
+      margin: 20px 0 10px;
     }
 
     h2 {
-      color: #e3f3d4;
-      margin-bottom: 20px;
-      font-size: 1.5em;
-      font-weight: normal;
+      color: #ffffff;
+      margin-bottom: 30px;
     }
 
-    .credits {
-      margin-top: 15px;
-      font-size: 14px;
-      color: #e3f3d4;
-    }
-
-    .model-viewers-container {
+    .viewers-container {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      gap: 30px; /* Increased space between viewers */
+      gap: 40px;
       width: 100%;
-      padding: 20px;
+      max-width: 1200px;
     }
 
     .viewer {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 54%; /* Increased width (20% larger) */
-      max-width: 500px; /* Increased max width (20% larger) */
+      width: 100%;
+      max-width: 800px;
     }
 
     .viewer-title {
-      color: #ffffff;
-      font-size: 1.2em;
+      font-size: 20px;
+      font-weight: bold;
+      color: #4A4A4A;
       margin-bottom: 10px;
+      text-align: center;
     }
 
     .sketchfab-embed-wrapper {
       width: 100%;
-      height: 360px; /* Increased height (20% larger) */
+      height: 600px;
       background: #ffffff;
       border: 2px solid #ccc;
       border-radius: 10px;
@@ -73,37 +66,26 @@
       height: 100%;
       border: none;
     }
-
-    @media (max-width: 768px) {
-      .model-viewers-container {
-        flex-direction: column;
-      }
-
-      .viewer {
-        width: 90%; /* Increased width for mobile responsiveness */
-      }
-    }
   </style>
 </head>
 <body>
   <h1>The Tree-D Scanner</h1>
   <h2>3D Reconstruction and Measurement of Woody Plant Features</h2>
-  <div class="model-viewers-container">
-    <!-- Left Viewer -->
+  <div class="viewers-container">
+    <!-- Bonsai Tree Viewer -->
     <div class="viewer">
-      <h3 class="viewer-title">Bonsai Tree</h3>
+      <div class="viewer-title">Bonsai Tree</div>
       <div class="sketchfab-embed-wrapper">
-        <iframe title="Bonsai_Tree" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/7893dad3991c491392231d3d4e8be8d1/embed"></iframe>
+        <iframe title="Cascade_ Simple_B" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/f68525da87e740628eebe8f2517dc5ae/embed"></iframe>
       </div>
     </div>
-    <!-- Right Viewer -->
+    <!-- Scanner Viewer -->
     <div class="viewer">
-      <h3 class="viewer-title">Scanner</h3>
+      <div class="viewer-title">Scanner</div>
       <div class="sketchfab-embed-wrapper">
-        <iframe title="Bonsai_Tree" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/7893dad3991c491392231d3d4e8be8d1/embed"></iframe>
+        <iframe title="Tree-D Scanner" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/c2619aaf70cd4905af346f1158b82c33/embed"></iframe>
       </div>
     </div>
   </div>
-  <p class="credits">Created by Tim Aiken</p>
 </body>
 </html>
