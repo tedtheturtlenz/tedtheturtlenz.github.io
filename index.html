@@ -1,64 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Tree-D Scanner</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #053225, #cbeaa6);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
+      /*padding-top: 120px; /* space for fixed header */
     }
 
-    h1 {
+    header {
+      /*position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;*/
+      height: 120px;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      /*z-index: 1000;*/
+    }
+
+    header a img {
+      height: 100px;
+      object-fit: contain;
+    }
+
+    h1, h2 {
       color: #ffffff;
-      margin: 20px 0 10px;
+      text-align: center;
+      margin: 10px 0 5px;
     }
 
     h2 {
-      color: #ffffff;
       margin-bottom: 30px;
+      font-weight: normal;
     }
 
-    .viewers-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 40px;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
-    .viewer {
+    .viewer-card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
-      max-width: 800px;
-    }
-
-    .viewer-title {
-      font-size: 20px;
-      font-weight: bold;
-      color: #4A4A4A;
-      margin-bottom: 10px;
-      text-align: center;
     }
 
     .sketchfab-embed-wrapper {
       width: 100%;
-      height: 600px;
-      background: #ffffff;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
+      height: 300px;
     }
 
     iframe {
@@ -66,26 +73,69 @@
       height: 100%;
       border: none;
     }
+
+    .tree-info {
+      padding: 15px;
+      text-align: center;
+      color: #333;
+    }
+
+    .tree-info h3 {
+      margin: 0 0 5px;
+      font-size: 18px;
+      color: #053225;
+    }
+
+    .tree-info p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <h1>The Tree-D Scanner</h1>
-  <h2>3D Reconstruction and Measurement of Woody Plant Features</h2>
-  <div class="viewers-container">
-    <!-- Bonsai Tree Viewer -->
-    <div class="viewer">
-      <div class="viewer-title">Bonsai Tree</div>
-      <div class="sketchfab-embed-wrapper">
-        <iframe title="Cascade_ Simple_B" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/f68525da87e740628eebe8f2517dc5ae/embed"></iframe>
-      </div>
-    </div>
-    <!-- Scanner Viewer -->
-    <div class="viewer">
-      <div class="viewer-title">Scanner</div>
-      <div class="sketchfab-embed-wrapper">
-        <iframe title="Tree-D Scanner" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/c2619aaf70cd4905af346f1158b82c33/embed"></iframe>
-      </div>
-    </div>
+
+  <!-- Header with only logos -->
+  <header>
+    <a href="https://www.waikato.ac.nz/" target="_blank" rel="noopener">
+      <img src="UoW_CoA.svg" alt="University of Waikato Logo" />
+    </a>
+    <a href="https://github.com/tedtheturtlenz/Bonsai-Scans" target="_blank" rel="noopener">
+      <img src="Logo.png" alt="Tree-D Project Logo" />
+    </a>
+  </header>
+
+  <!-- Title outside of header -->
+  <h1>The Tree-D Scanner Bonsai Collection</h1>
+  <h2>A Collection of Bonsai Trees Scanned at the University of Waikato</h2>
+
+  <!-- Viewer grid -->
+  <div class="grid-container">
+    <script>
+      const container = document.currentScript.parentNode;
+      const sketchfabURL = "https://sketchfab.com/models/f68525da87e740628eebe8f2517dc5ae/embed";
+
+      for (let i = 1; i <= 20; i++) {
+        const species = "Ficus Microcarpa"; // Placeholder
+        const age = `${5 + Math.floor(Math.random() * 10)} years`;
+
+        const card = document.createElement("div");
+        card.className = "viewer-card";
+
+        card.innerHTML = `
+          <div class="sketchfab-embed-wrapper">
+            <iframe title="Tree Model ${i}" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
+              src="${sketchfabURL}"></iframe>
+          </div>
+          <div class="tree-info">
+            <h3>Tree ${i}</h3>
+            <p><strong>Species:</strong> ${species}</p>
+            <p><strong>Age:</strong> ${age}</p>
+          </div>
+        `;
+
+        container.appendChild(card);
+      }
+    </script>
   </div>
 </body>
 </html>
